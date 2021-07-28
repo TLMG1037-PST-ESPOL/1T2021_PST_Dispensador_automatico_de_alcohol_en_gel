@@ -1,5 +1,15 @@
-const userControl= require('./controllers/database.js');
+const userControl={};
+const db=require("./database.js")
 
-userControl.getUsuarios=(req,res)=>res.send('<h1>Lista de usuarios</h1>');
+userControl.getUsuarios=(req,res)=>{
+    db.query("Select * FROM usuario", (err,result,fields)=>{
+        if (err) {
+            res.status(500).send(err);
+            console.log(err);
+            return;
+        }
+        res.json(result);
+    });
+}
 
 module.exports=userControl;

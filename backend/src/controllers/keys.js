@@ -3,6 +3,6 @@ module.exports = {
         host: 'localhost',
         user: 'estudiante',
         password: 'estudiante',
-        database: 'ProyectoPST'
+        database: 'dispensador_automatico'
     }
 };
