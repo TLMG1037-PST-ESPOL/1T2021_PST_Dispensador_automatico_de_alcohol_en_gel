@@ -41,18 +41,23 @@ class Login extends Component{
             const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/'+this.state.form.usuario,
             )
             if(res.data[0].contraseña == this.state.form.contraseña){
+                cookies.set('correo_electronico',res.data[0].correo_electronico, {path: "/"});
                 cookies.set('nombre_usuario',res.data[0].nombre_usuario, {path: "/"});
-                alert(`Bienvenido ${res.data[0].nombre_usuario}`);
                 window.location.href="./inicio";
                 
             }else{
-                if(!this.state.form.usuario){
+                if(!this.state.form.usuario & !this.state.form.contraseña){
+                    console.log("ingrese usuario y contraseña");
+                    alert(`ingrese nombre de usuario y contraseña`);
+                }else if(!this.state.form.usuario){
                     console.log("ingrese nombre de usuario");
-                }
-                if(!this.state.form.contraseña){
+                    alert(`ingrese nombre de usuario`);
+                }else if(!this.state.form.contraseña){
                     console.log("ingrese contraseña");
+                    alert(`ingrese contraseña`);
                 }else{
                     console.log("contraseña incorrecta");
+                    alert(`contraseña incorrecta`);
                 }
             }
         } catch (error) {
