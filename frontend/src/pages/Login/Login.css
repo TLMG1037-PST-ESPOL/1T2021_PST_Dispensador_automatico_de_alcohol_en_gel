@@ -4,7 +4,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      border: 1px solid rgb(21, 24, 19);
+      /*border: 1px solid rgb(21, 24, 19);*/
       padding: 40px;
       /*background: content-box radial-gradient(crimson, skyblue)*/;
   }

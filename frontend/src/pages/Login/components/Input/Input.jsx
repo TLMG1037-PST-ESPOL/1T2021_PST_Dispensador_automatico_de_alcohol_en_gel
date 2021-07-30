@@ -1,12 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Input.css'
 
 
 const Input=({atribute, handleChange, param})=>{
     return(
         <div>
-            <input
+            <input classname="Input"
             
             id={atribute.id}
             name={atribute.name}
