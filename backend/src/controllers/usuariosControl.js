@@ -15,8 +15,9 @@ userControl.getUsuarios=(req,res)=>{
 
 // obtener informacion de la DB
 userControl.getUsuario=(req, res)=>{
-    //const {nombre_usuario, contraseña}=req.body;
-    console.log(req.params.id);
+    console.log(req.params.id)
+      //const {nombre_usuario, contraseña}=req.body;
+    
     /*if (!contraseña){
         res.status(400).send("Datos incompletos");
         console.log("sin clave");
@@ -27,8 +28,9 @@ userControl.getUsuario=(req, res)=>{
         console.log("sin nombre");
         return;
     }*/
-/*
-    db.query("SELECT * FROM usuario WHERE nombre_usuario="+req.params.id, (err, result, fields)=>{
+
+    db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+req.params.id+"'",(err, result, fields)=>{
+        console.log(result);
         if(err){
             res.status(500).send(err);
             console.log("error");
