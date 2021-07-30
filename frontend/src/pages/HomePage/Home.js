@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-export default class Home extends Component {
+import Logo from './components/Logo/Logo'
+import Bgr from './components/background/bg'
+class Home extends Component {
   render() {
     return (
+      <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-success">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Automatic Dispenser</Link>
@@ -19,5 +21,11 @@ export default class Home extends Component {
         </div>
       </nav>
       
+      
+      <Logo/>
+      
+      </div>
+      
     );}
 }
+export default Home
