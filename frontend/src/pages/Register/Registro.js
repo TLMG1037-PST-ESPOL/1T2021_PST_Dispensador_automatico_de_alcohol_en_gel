@@ -4,29 +4,36 @@ import './Registro.css'
 const Registro=()=>{
 
     return(
-        <div className="containerPrincipal">
-        <div className="containerSecundario">
+        <div className="containerRegistro">
+        <div className="containerRegistrosSec">
             <text Registrarse />
-            <div className="form-group">
-            <label>Usuario: </label>
-            <br />
+            <div className="form-group2">
+            <label>Correo electrónico: </label>
+            <input
+              type="text"
+              className="form-control"
+              name="email"
+              onChange={(e)=>setEmailReg(e.target.value)}
+
+              
+            />
+            <label>Nombre de usuario </label>
             <input
               type="text"
               className="form-control"
               name="username"
-              
+              onChange={(e)=>setUsernameReg(e.target.value)}
             />
-            <br />
+
             <label>Contraseña: </label>
-            <br />
             <input
               type="password"
               className="form-control"
               name="password"
+              onChange={(e)=>setPasswordReg(e.target.value)}
              
             />
-            <br />
-            <button className="btn btn-primary" onClick={()=> this.iniciarSesion()}>Iniciar Sesión</button>
+            <button className="Registrarse">Registrarse</button>
           </div>
         </div>
       </div>
