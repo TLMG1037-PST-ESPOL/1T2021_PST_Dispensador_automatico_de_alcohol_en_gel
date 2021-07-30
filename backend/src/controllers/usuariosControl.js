@@ -2,6 +2,7 @@ const userControl={};
 const db=require("./database.js")
 
 userControl.getUsuarios=(req,res)=>{
+    console.log(req.body)
     db.query("Select * FROM usuario", (err,result,fields)=>{
         if (err) {
             res.status(500).send(err);
@@ -14,10 +15,8 @@ userControl.getUsuarios=(req,res)=>{
 
 // obtener informacion de la DB
 userControl.getUsuario=(req, res)=>{
-    if(isNaN(req.params.id)){
-        res.status(400).send("Id no valido");
-        return;
-    }
+    console.log(req.params.id)
+    /** 
     db.query("SELECT * FROM usuario WHERE id_usuario="+req.params.id, (err, result, fields)=>{
         if(err){
             res.status(500).send(err);
@@ -25,25 +24,18 @@ userControl.getUsuario=(req, res)=>{
             return;
         }
         res.json(result)
-    })
+    })*/
 }
 
 //agregar informacion a la DB
 userControl.postUsuario=(req,res)=>{
+    console.log(req.body)
     const {id_rol_usuario, nombre_usuario, correo_electronico, contraseña}=req.body;
     if(!id_rol_usuario || !nombre_usuario || !correo_electronico || !contraseña){
         res.status(400).send("Datos incompletos");
         return;
     }
-    let SQLbody={}
-    //validacion que se podría evitar cambiando las claves al username, hay que pensarlo
-    db.query("SELECT * FROM usuario WHERE nombre_usuario = "+nombre_usuario, (err,result)=>{
-        if(!result){
-            res.status(400).send("Usuario ya existe");
-            return;
-        }
-    });
-        
+    let SQLbody={}  
     
     SQLbody={id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
     
