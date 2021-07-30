@@ -16,8 +16,7 @@ userControl.getUsuarios=(req,res)=>{
 // obtener informacion de la DB
 userControl.getUsuario=(req, res)=>{
     console.log(req.params.id)
-      //const {nombre_usuario, contraseña}=req.body;
-       db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+req.params.id+"'",(err, result, fields)=>{
+      db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+req.params.id+"'",(err, result, fields)=>{
         console.log(result);
         if(err){
             res.status(500).send(err);
