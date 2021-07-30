@@ -4,8 +4,8 @@ import React from 'react'
 const Registro=()=>{
 
     return(
-        <div className="containerPrincipal">
-        <div className="containerSecundario">
+        <div className="containerPrincipl">
+        <div className="containerSecundrio">
             <text Registrarse />
             <div className="form-group">
             <label>Usuario: </label>
