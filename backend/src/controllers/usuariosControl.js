@@ -30,22 +30,20 @@ userControl.getUsuario=(req, res)=>{
 
 //agregar informacion a la DB
 userControl.postUsuario=(req,res)=>{
-    const {id_usuario, id_rol_usuario, nombre_usuario, correo_electronico, contraseña}=req.body;
+    const {id_rol_usuario, nombre_usuario, correo_electronico, contraseña}=req.body;
     if(!id_rol_usuario || !nombre_usuario || !correo_electronico || !contraseña){
         res.status(400).send("Datos incompletos");
         return;
     }
     let SQLbody={}
-    if (!id_usuario){
-        SQLbody={id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
-    }else{
-        SQLbody={id_usuario, id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
-    }
+    
+    SQLbody={id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
+    
     db.query("INSERT INTO usuario SET ?",[SQLbody],
     (err,result)=>{
         if(err){
             res.status(500).send(err);
-            console.log(err);
+            console.log("error");
             return;
         }
         res.send("Usuario ingresado")

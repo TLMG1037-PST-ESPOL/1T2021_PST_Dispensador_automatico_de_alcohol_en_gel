@@ -7,7 +7,7 @@ import './Input.css'
 const Input=({atribute, handleChange, param})=>{
     return(
         <div>
-            <input classname="text_field"
+            <input className="text_field"
             
             id={atribute.id}
             name={atribute.name}
