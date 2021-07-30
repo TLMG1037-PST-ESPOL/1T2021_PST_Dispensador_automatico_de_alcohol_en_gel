@@ -52,7 +52,6 @@ class Login extends Component{
 
                     }}
                     handleChange={this.handleChange}/>
-                    <br />
                     <Label text="Contraseña"/>
                     <Input
                     atribute={{
@@ -64,7 +63,7 @@ class Login extends Component{
                     }}
                     handleChange={this.handleChange}/>
 
-                <br /> 
+        
                 <button className="botoncito" onClick={()=> this.iniciarSesion()}>Iniciar Sesión</button>
 
                 </div>
