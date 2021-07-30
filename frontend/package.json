@@ -4,6 +4,11 @@
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "@react-md/app-bar": "^2.9.1",
+    "@react-md/button": "^2.9.1",
+    "@react-md/icon": "^2.9.1",
+    "@react-md/theme": "^2.9.1",
+    "@react-md/typography": "^2.9.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
