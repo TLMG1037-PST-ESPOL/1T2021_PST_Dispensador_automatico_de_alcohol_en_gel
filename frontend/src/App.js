@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Login  from "./pages/Login/Login.js";
 import Home  from "./pages/HomePage/Home.js";
-import Registro from "./pages/Registro/Registro.js";
+import Registro from "./pages/Register/Registro.js";
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

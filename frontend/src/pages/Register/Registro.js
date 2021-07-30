@@ -1,11 +1,11 @@
 import React from 'react'
-
+import './Registro.css'
 
 const Registro=()=>{
 
     return(
-        <div className="containerPrincipl">
-        <div className="containerSecundrio">
+        <div className="containerPrincipal">
+        <div className="containerSecundario">
             <text Registrarse />
             <div className="form-group">
             <label>Usuario: </label>
