@@ -39,9 +39,7 @@ class Login extends Component{
         try {
           
             const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/'+this.state.form.usuario,
-              { nombre_usuario:this.state.form.usuario,
-                contraseña:this.state.form.contraseña
-              })
+            )
             console.log(res);
         } catch (error) {
             alert("Usuario no existe"); //personalizar errores para lanzarlos y manejarlos
