@@ -37,7 +37,7 @@ userControl.getUsuario=(req, res)=>{
             return;
         }
         res.json(result)
-    })*/
+    })
 }
 
 //agregar informacion a la DB
