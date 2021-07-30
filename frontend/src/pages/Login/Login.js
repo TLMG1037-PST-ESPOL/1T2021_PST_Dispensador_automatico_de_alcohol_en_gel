@@ -1,5 +1,4 @@
 import React,{Component} from 'react'; //Importancion de react
-import {useState} from 'react';
 import Title from './components/Title/Title'; //importa el componente titulo
 import Label from  './components/Label/Label'; //importa el componente label 
 import Input from './components/Input/Input';
@@ -7,6 +6,9 @@ import './Login.css'
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'
+import axios from "axios"
+import {backend} from '../../App.js'
+
 
 
 
@@ -15,7 +17,7 @@ import { Link } from 'react-router-dom'
 //Los elementos del login se importan desde component para modularizar (Componentes reutilizables)
 //implementa el metodo render
 class Login extends Component{
-
+ 
     state={
         form:{
             usuario: '',
