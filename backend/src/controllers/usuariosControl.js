@@ -2,7 +2,6 @@ const userControl={};
 const db=require("./database.js")
 
 userControl.getUsuarios=(req,res)=>{
-    console.log(req.body)
     db.query("Select * FROM usuario", (err,result,fields)=>{
         if (err) {
             res.status(500).send(err);
@@ -28,7 +27,7 @@ userControl.getUsuario=(req, res)=>{
         console.log("sin nombre");
         return;
     }*/
-
+/*
     db.query("SELECT * FROM usuario WHERE nombre_usuario="+req.params.id, (err, result, fields)=>{
         if(err){
             res.status(500).send(err);
@@ -36,7 +35,7 @@ userControl.getUsuario=(req, res)=>{
             return;
         }
         res.json(result)
-    })
+    })*/
 }
 
 //agregar informacion a la DB
@@ -44,6 +43,11 @@ userControl.postUsuario=(req,res)=>{
     console.log(req.body)
     const {id_rol_usuario, nombre_usuario, correo_electronico, contraseña}=req.body;
     if(!id_rol_usuario || !nombre_usuario || !correo_electronico || !contraseña){
+        res.status(400).send("Datos incompletos");
+        return;
+    }
+
+     if(!id_rol_usuario || !nombre_usuario || !correo_electronico || !contraseña){
         res.status(400).send("Datos incompletos");
         return;
     }

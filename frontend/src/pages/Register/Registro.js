@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Registro.css'
 import axios from "axios"
 import {backend} from '../../App.js'
+import { Link } from 'react-router-dom'
 
 class Registro extends Component{
 
@@ -104,7 +105,10 @@ class Registro extends Component{
             
             
           />
-          <button className="Registrarse" onClick={this.onClick}>Registrarse</button>
+          <button className="Registrarse" onClick={this.onClick}>Registrarse
+          </button>
+          
+
         </div>
       </div>
     </div>
