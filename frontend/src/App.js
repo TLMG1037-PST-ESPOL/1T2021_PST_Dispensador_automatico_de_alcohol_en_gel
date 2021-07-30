@@ -5,6 +5,7 @@ import Home  from "./pages/HomePage/Home.js";
 import Registro from "./pages/Register/Registro.js";
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Inicio from "./pages/UserGUI/Inicio/Inicio.js";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login}/>  
       <Route path="/register" exact component={Registro}/>  
+      <Route path="/inicio" exact component={Inicio}/> 
    </Router>
 
   );

@@ -8,8 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
 import {backend} from '../../App.js'
 import Cookies from 'universal-cookie';
-
-
+import Inicio from '../UserGUI/Inicio/Inicio.js';
 
 const cookies= new Cookies() 
 
@@ -44,6 +43,7 @@ class Login extends Component{
             if(res.data[0].contraseña == this.state.form.contraseña){
                 cookies.set('nombre_usuario',res.data[0].nombre_usuario, {path: "/"});
                 alert(`Bienvenido ${res.data[0].nombre_usuario}`);
+                window.location.href="./inicio";
                 
             }else{
                 if(!this.state.form.usuario){
