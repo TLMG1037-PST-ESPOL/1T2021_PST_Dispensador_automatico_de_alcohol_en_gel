@@ -49,7 +49,7 @@ class Registro extends Component{
     onClick = async (e)=>{
       e.preventDefault();
       try {
-          console.log("cacacaca")
+          
           const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
             { id_rol_usuario: 1,
               nombre_usuario:this.state.userName,
@@ -58,7 +58,7 @@ class Registro extends Component{
             })
           console.log(res);
       } catch (error) {
-          alert("Queeeee");
+          alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
       }
       
       this.getUsuarios();
@@ -95,7 +95,7 @@ class Registro extends Component{
 
           <label>Contraseña: </label>
           <input
-            type="text"
+            type="password"
             className="form-control"
             value={this.state.userPassword} 
             placeholder="Ingrese contraseña" 

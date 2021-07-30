@@ -13,6 +13,7 @@ const Input=({atribute, handleChange, param})=>{
             name={atribute.name}
             placeholder={atribute.placeholder}
             type={atribute.type}
+            value={atribute.value}
             onChange={handleChange}
 
             />

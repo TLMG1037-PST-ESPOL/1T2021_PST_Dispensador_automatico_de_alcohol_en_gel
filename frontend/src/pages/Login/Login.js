@@ -5,10 +5,9 @@ import Input from './components/Input/Input';
 import './Login.css'
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom'
 import axios from "axios"
 import {backend} from '../../App.js'
-import md5 from "md5";
+
 
 
 
@@ -35,18 +34,18 @@ class Login extends Component{
         console.log(this.state.form)
     }
 
-    onClick = async (e)=>{
-        console.log(this.state.form)
+    iniciarSesion = async (e)=>{
         e.preventDefault();
         try {
-            console.log("iniciar sesion")
-            const res = await axios.get(backend.host + ':' + backend.port + '/usuarios'+'/1',
+          
+            const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/'+this.state.form.usuario,
               { nombre_usuario:this.state.form.usuario,
-                contraseña:this.state.form.contraseña})
+                contraseña:this.state.form.contraseña
+              })
             console.log(res);
         } catch (error) {
-            alert("Queeeee");
-        }        
+            alert("Usuario no existe"); //personalizar errores para lanzarlos y manejarlos
+        }
     }
         
 
@@ -78,7 +77,7 @@ class Login extends Component{
                     handleChange={this.handleChange}/>
 
         
-                <button className="botoncito" onClick={this.onClick}>Iniciar Sesión</button>
+                <button className="botoncito" onClick={this.iniciarSesion}>Iniciar Sesión</button>
 
                 </div>
            
@@ -91,3 +90,23 @@ class Login extends Component{
 
 export default Login;
 
+/** e.preventDefault();
+      try {
+          
+          const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
+            { id_rol_usuario: 1,
+              nombre_usuario:this.state.userName,
+              correo_electronico:this.state.userEmail,
+              contraseña:this.state.userPassword
+            })
+          console.log(res);
+      } catch (error) {
+          alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
+      }
+      
+      this.getUsuarios();
+      this.setState({userName:''});
+      this.setState({userEmail:''});
+      this.setState({userPassword:''});
+      
+    } */
