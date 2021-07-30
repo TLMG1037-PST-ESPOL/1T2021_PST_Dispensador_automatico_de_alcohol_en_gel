@@ -1,5 +1,6 @@
 import React from 'react'
 import './Registro.css'
+import axios from "axios"
 
 const Registro=()=>{
 
@@ -13,7 +14,7 @@ const Registro=()=>{
               type="text"
               className="form-control"
               name="email"
-              onChange={(e)=>setEmailReg(e.target.value)}
+             // onChange={(e)=>setEmailReg(e.target.value)}
 
               
             />
@@ -22,7 +23,7 @@ const Registro=()=>{
               type="text"
               className="form-control"
               name="username"
-              onChange={(e)=>setUsernameReg(e.target.value)}
+             // onChange={(e)=>setUsernameReg(e.target.value)}
             />
 
             <label>Contraseña: </label>
@@ -30,7 +31,7 @@ const Registro=()=>{
               type="password"
               className="form-control"
               name="password"
-              onChange={(e)=>setPasswordReg(e.target.value)}
+             // onChange={(e)=>setPasswordReg(e.target.value)}
              
             />
             <button className="Registrarse">Registrarse</button>
