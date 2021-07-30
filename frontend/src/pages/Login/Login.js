@@ -10,9 +10,6 @@ import axios from "axios"
 import {backend} from '../../App.js'
 
 
-
-
-
 //Clase Login implementa la interfaz Component
 //Los elementos del login se importan desde component para modularizar (Componentes reutilizables)
 //implementa el metodo render
