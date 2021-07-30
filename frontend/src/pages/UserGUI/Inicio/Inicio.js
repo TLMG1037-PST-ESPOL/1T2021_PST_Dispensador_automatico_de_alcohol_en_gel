@@ -3,7 +3,7 @@ import './components/TaskBar/TaskBar.js'
 import TaskBar from './components/TaskBar/TaskBar.js'
 
 import Cookies from 'universal-cookie';
-import Cookies from 'universal-cookie';
+
 
 const cookies= new Cookies() 
 
