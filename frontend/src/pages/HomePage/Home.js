@@ -6,7 +6,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-success">
+
+        <nav class="navbar navbar-dark bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Automatic Dispenser</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
