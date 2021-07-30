@@ -7,16 +7,19 @@
       /*border: 1px solid rgb(21, 24, 19);*/
       padding: 40px;
       /*background: content-box radial-gradient(crimson, skyblue)*/;
+      background-color: #024379;
+      height: 100%;
+      width: 100%;
+      
   }
-  body{
-    background-color: #333;
-    /*align-items:baseline*/;
-    
-  }
+  
   .containerSecundario{
     text-align: center;
     color:white;
     }
   .botoncito{
-      background-color: ;
+      background-color: rgb(255, 143, 15);
+      width: 30%;
+      height: 50px;
+      border: 0cm;
     }
