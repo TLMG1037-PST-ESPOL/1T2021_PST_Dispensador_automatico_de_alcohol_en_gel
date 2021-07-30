@@ -8,9 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import {backend} from '../../App.js'
+import md5 from "md5";
 
-
-
+const baseURL="http://localhost:8080/usuarios"; //usar funcion en app
 
 
 //Clase Login implementa la interfaz Component
@@ -33,6 +33,16 @@ class Login extends Component{
             }
         });
         console.log(this.state.form)
+    }
+
+    iniciarSesion=async()=>{
+        await axios.get(baseURL, {params: {nombre_usuario: this.state.form.usuario, contraseña: this.state.form.contraseña}})
+        .then(response=>{
+            console.log(response.data);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
         
 
