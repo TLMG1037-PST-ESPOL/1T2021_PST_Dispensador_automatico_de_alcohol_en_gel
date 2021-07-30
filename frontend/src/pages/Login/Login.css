@@ -1,13 +1,22 @@
+
 .containerPrincipal {
     position:fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      border: 1px solid rgb(141, 255, 47);
+      border: 1px solid rgb(21, 24, 19);
       padding: 40px;
-      background-color: white;
+      /*background: content-box radial-gradient(crimson, skyblue)*/;
   }
-  
+  body{
+    background-color: #333;
+    /*align-items:baseline*/;
+    
+  }
   .containerSecundario{
     text-align: center;
-  }
+    color:white;
+    }
+  .botoncito{
+      background-color: ;
+    }
