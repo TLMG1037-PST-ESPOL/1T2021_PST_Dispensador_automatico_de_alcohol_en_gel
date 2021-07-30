@@ -23,7 +23,7 @@ userControl.getUsuario=(req, res)=>{
         console.log("sin clave");
         return;
     }
-    if (!nombre_usuario){
+    if (!req.params.id){
         res.status(400).send("Datos incompletos");
         console.log("sin nombre");
         return;

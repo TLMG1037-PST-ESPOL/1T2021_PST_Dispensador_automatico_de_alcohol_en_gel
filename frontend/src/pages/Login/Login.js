@@ -44,7 +44,14 @@ class Login extends Component{
                 console.log(res.data[0]);
                 
             }else{
-                console.log("contraseña incorrecta");
+                if(!this.state.form.usuario){
+                    console.log("ingrese nombre de usuario");
+                }
+                if(!this.state.form.contraseña){
+                    console.log("ingrese contraseña");
+                }else{
+                    console.log("contraseña incorrecta");
+                }
             }
         } catch (error) {
             alert("Usuario no existe"); //personalizar errores para lanzarlos y manejarlos
