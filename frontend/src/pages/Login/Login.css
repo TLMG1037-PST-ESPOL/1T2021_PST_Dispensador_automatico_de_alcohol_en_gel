@@ -6,7 +6,7 @@
       transform: translate(-50%, -50%);
       /*border: 1px solid rgb(21, 24, 19);*/
       padding: 40px;
-      /*background: content-box radial-gradient(crimson, skyblue)*/;
+      /*background: content-box radial-gradient(#024379, rgba(255, 255, 255, 0.534));*/
       background-color: #024379;
       height: 100%;
       width: 100%;
@@ -15,11 +15,17 @@
   
   .containerSecundario{
     text-align: center;
+    left: 50%;
+    top: 50%;
     color:white;
     }
   .botoncito{
       background-color: rgb(255, 143, 15);
-      width: 30%;
-      height: 50px;
+      width: 200px;
+      height: 40px;
       border: 0cm;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      font-style: inherit;
+      border-radius: 5px;
     }

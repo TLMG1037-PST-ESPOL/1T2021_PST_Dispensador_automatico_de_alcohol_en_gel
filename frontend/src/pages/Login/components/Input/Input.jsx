@@ -7,14 +7,14 @@ import './Input.css'
 const Input=({atribute, handleChange, param})=>{
     return(
         <div>
-            <input classname="Input"
+            <input classname="text_field"
             
             id={atribute.id}
             name={atribute.name}
             placeholder={atribute.placeholder}
             type={atribute.type}
             onChange={handleChange}
-            className="regular-style"
+
             />
 
         </div>
