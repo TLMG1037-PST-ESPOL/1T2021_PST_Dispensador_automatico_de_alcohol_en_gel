@@ -7,10 +7,11 @@ import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
 import {backend} from '../../App.js'
+import Cookies from 'universal-cookie';
 
 
 
-
+const cookies= new Cookies() 
 
 //Clase Login implementa la interfaz Component
 //Los elementos del login se importan desde component para modularizar (Componentes reutilizables)
@@ -41,7 +42,8 @@ class Login extends Component{
             const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/'+this.state.form.usuario,
             )
             if(res.data[0].contraseña == this.state.form.contraseña){
-                console.log(res.data[0]);
+                cookies.set('nombre_usuario',res.data[0].nombre_usuario, {path: "/"});
+                alert(`Bienvenido ${res.data[0].nombre_usuario}`);
                 
             }else{
                 if(!this.state.form.usuario){
@@ -100,23 +102,3 @@ class Login extends Component{
 
 export default Login;
 
-/** e.preventDefault();
-      try {
-          
-          const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
-            { id_rol_usuario: 1,
-              nombre_usuario:this.state.userName,
-              correo_electronico:this.state.userEmail,
-              contraseña:this.state.userPassword
-            })
-          console.log(res);
-      } catch (error) {
-          alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
-      }
-      
-      this.getUsuarios();
-      this.setState({userName:''});
-      this.setState({userEmail:''});
-      this.setState({userPassword:''});
-      
-    } */
