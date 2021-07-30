@@ -8,23 +8,34 @@ userControl.getUsuarios=(req,res)=>{
             console.log(err);
             return;
         }
+        console.log("Hola");
         res.json(result);
     });
 }
 
 // obtener informacion de la DB
 userControl.getUsuario=(req, res)=>{
-    if(isNaN(req.params.id)){
-        res.status(400).send("Id no valido");
+    //const {nombre_usuario, contraseña}=req.body;
+    console.log(req.params.id);
+    /*if (!contraseña){
+        res.status(400).send("Datos incompletos");
+        console.log("sin clave");
         return;
     }
-    db.query("SELECT * FROM usuario WHERE id_usuario="+req.params.id, (err, result, fields)=>{
+    if (!nombre_usuario){
+        res.status(400).send("Datos incompletos");
+        console.log("sin nombre");
+        return;
+    }*/
+
+    db.query("SELECT * FROM usuario WHERE nombre_usuario="+req.params.id, (err, result, fields)=>{
         if(err){
             res.status(500).send(err);
-            console.log(err);
+            console.log("error");
             return;
         }
         res.json(result)
+        res.send(result.affectedRows);
     })
 }
 

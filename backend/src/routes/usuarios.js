@@ -5,7 +5,7 @@ const { getUsuarios, getUsuario, postUsuario, deleteUsuario } = require('../cont
 
 router.route('/').get(getUsuarios)
     .post(postUsuario);
-router.route('/:id').get(getUsuario)
+router.route('/:id').get(getUsuario) //cambiar
     .delete(deleteUsuario);
 
 module.exports = router

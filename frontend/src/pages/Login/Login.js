@@ -10,7 +10,7 @@ import axios from "axios"
 import {backend} from '../../App.js'
 import md5 from "md5";
 
-const baseURL="http://localhost:8080/usuarios"; //usar funcion en app
+
 
 
 //Clase Login implementa la interfaz Component
@@ -35,14 +35,18 @@ class Login extends Component{
         console.log(this.state.form)
     }
 
-    iniciarSesion=async()=>{
-        await axios.get(baseURL, {params: {nombre_usuario: this.state.form.usuario, contraseña: this.state.form.contraseña}})
-        .then(response=>{
-            console.log(response.data);
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+    onClick = async (e)=>{
+        console.log(this.state.form)
+        e.preventDefault();
+        try {
+            console.log("iniciar sesion")
+            const res = await axios.get(backend.host + ':' + backend.port + '/usuarios'+'/1',
+              { nombre_usuario:this.state.form.usuario,
+                contraseña:this.state.form.contraseña})
+            console.log(res);
+        } catch (error) {
+            alert("Queeeee");
+        }        
     }
         
 
@@ -74,7 +78,7 @@ class Login extends Component{
                     handleChange={this.handleChange}/>
 
         
-                <button className="botoncito" onClick={()=> this.iniciarSesion()}>Iniciar Sesión</button>
+                <button className="botoncito" onClick={this.onClick}>Iniciar Sesión</button>
 
                 </div>
            
