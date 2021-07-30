@@ -59,8 +59,8 @@ class Registro extends Component{
           })
         console.log(res);
         if(res){
-          alert("Cuenta registrada")
-          
+          alert("Cuenta registrada");
+          window.location.href="./";
         }
     } catch (error) {
         alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
