@@ -1,6 +1,7 @@
 const express = require('express');
 const server = express();
 const cors = require('cors');
+const path = require('path');
 
 //Configs
 server.set('port',8080);
@@ -12,7 +13,7 @@ server.use(cors());
 
 //Routes
 server.get('/', function (req, res) {
-   res.send('<h1> Hola mundo con Express </h1>')
+   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 server.use('/usuarios',require('./routes/usuarios.js'))
 

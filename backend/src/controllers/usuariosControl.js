@@ -16,20 +16,7 @@ userControl.getUsuarios=(req,res)=>{
 // obtener informacion de la DB
 userControl.getUsuario=(req, res)=>{
     console.log(req.params.id)
-      //const {nombre_usuario, contraseña}=req.body;
-    
-    /*if (!contraseña){
-        res.status(400).send("Datos incompletos");
-        console.log("sin clave");
-        return;
-    }
-    if (!nombre_usuario){
-        res.status(400).send("Datos incompletos");
-        console.log("sin nombre");
-        return;
-    }*/
-
-    db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+req.params.id+"'",(err, result, fields)=>{
+      db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+req.params.id+"'",(err, result, fields)=>{
         console.log(result);
         if(err){
             res.status(500).send(err);
@@ -37,7 +24,7 @@ userControl.getUsuario=(req, res)=>{
             return;
         }
         res.json(result)
-    })*/
+    })
 }
 
 //agregar informacion a la DB
@@ -48,11 +35,16 @@ userControl.postUsuario=(req,res)=>{
         res.status(400).send("Datos incompletos");
         return;
     }
-
-     if(!id_rol_usuario || !nombre_usuario || !correo_electronico || !contraseña){
-        res.status(400).send("Datos incompletos");
-        return;
-    }
+/**
+    db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+nombre_usuario+"'",(err, result, fields)=>{
+        console.log(result)
+        if(result){
+            res.status(400).send(err);
+            console.log("Usuario ya existe");
+            return;
+        }
+    })*/
+    
     let SQLbody={}  
     
     SQLbody={id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
