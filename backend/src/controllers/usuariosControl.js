@@ -36,6 +36,14 @@ userControl.postUsuario=(req,res)=>{
         return;
     }
     let SQLbody={}
+    //validacion que se podría evitar cambiando las claves al username, hay que pensarlo
+    db.query("SELECT * FROM usuario WHERE nombre_usuario = "+nombre_usuario, (err,result)=>{
+        if(!result){
+            res.status(400).send("Usuario ya existe");
+            return;
+        }
+    });
+        
     
     SQLbody={id_rol_usuario, nombre_usuario, correo_electronico, contraseña};
     
