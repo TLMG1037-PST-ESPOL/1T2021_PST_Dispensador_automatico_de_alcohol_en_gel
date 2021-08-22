@@ -1,8 +1,9 @@
 module.exports = {
     database: {
-        host: 'localhost',
-        user: 'estudiante',
-        password: 'estudiante',
-        database: 'dispensador_automatico'
+        host: 'sql10.freesqldatabase.com',
+        user: 'sql10432175',
+        password: 'uHfKBfXaIM',
+        database: 'sql10432175'
     }
 };
+
