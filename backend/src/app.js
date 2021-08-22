@@ -21,5 +21,6 @@ server.get('*', (req, res) => {
    res.status(404).send("<h1>Error 404</h1><h2>Página no encontrada</h2>")
 })
 
+
 module.exports = server;
 
