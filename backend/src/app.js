@@ -16,6 +16,7 @@ server.get('/', function (req, res) {
    res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 server.use('/usuarios',require('./routes/usuarios.js'))
+server.use('/dispensadores',require('./routes/dispensador.js'))
 
 server.get('*', (req, res) => {
    res.status(404).send("<h1>Error 404</h1><h2>Página no encontrada</h2>")

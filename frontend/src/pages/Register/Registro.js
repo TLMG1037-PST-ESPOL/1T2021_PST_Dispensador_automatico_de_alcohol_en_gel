@@ -1,125 +1,169 @@
 import React, { Component } from 'react'
 import './Registro.css'
 import axios from "axios"
-import {backend} from '../../App.js'
+import { backend } from '../../App.js'
 import { Link } from 'react-router-dom'
 
-class Registro extends Component{
+class Registro extends Component {
 
   state = {
     users: [],
+    dispensadores: [],
     userName: '',
     userEmail: '',
-    userPassword: ''
+    userPassword: '',
+    idDispensador: ''
 
   }
   //get Usuarios
   async getUsuarios() {
     const res = await axios.get(backend.host + ':' + backend.port + '/usuarios');
-    this.setState({users:res.data});
+    this.setState({ users: res.data });
     console.log(this.state.users)
   }
-  
+  async getDispensadores() {
+    const res = await axios.get(backend.host + ':' + backend.port + '/dispensadores');
+    this.setState({ dispensadores: res.data });
+    console.log(this.state.dispensadores)
+  }
+
   async componentDidMount() {
     await this.getUsuarios();
+    await this.getDispensadores();
     console.log(this.state.users);
-  } 
+    console.log(this.state.dispensadores);
+  }
 
   //Funciones onChange para manejar evento del input
-  onChangeEmail = (e)=>{
+  onChangeEmail = (e) => {
     this.setState({
-          userEmail: e.target.value
+      userEmail: e.target.value
     })
     console.log(this.state.userEmail)
-    }
-    
-  onChangeUser = (e)=>{
+  }
+  onChangeUser = (e) => {
     this.setState({
-        userName: e.target.value
+      userName: e.target.value
     })
   }
-  
-  onChangePassword = (e)=>{
+  onChangePassword = (e) => {
     this.setState({
-        userPassword: e.target.value
+      userPassword: e.target.value
     })
+  }
+  onChangeIdDispensador = (e) => {
+    this.setState({
+      idDispensador: e.target.value
+    })
+    console.log(this.state.idDispensador)
   }
 
   //Manejador para boton
 
-  onClick = async (e)=>{
+  onClick = async (e) => {
     e.preventDefault();
     try {
-        
-        const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
-          { id_rol_usuario: 1,
-            nombre_usuario:this.state.userName,
-            correo_electronico:this.state.userEmail,
-            contraseña:this.state.userPassword
-          })
-        console.log(res);
-        if(res){
-          alert("Cuenta registrada");
-          window.location.href="./";
-        }
+
+      const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
+        {
+          id_rol_usuario: 1,
+          nombre_usuario: this.state.userName,
+          correo_electronico: this.state.userEmail,
+          contraseña: this.state.userPassword
+        })
+      console.log(res);
+      if (res) {
+        alert("Cuenta registrada");
+        window.location.href = "./";
+      }
     } catch (error) {
-        alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
+      alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
+    }
+    this.getUsuarios();
+    try {
+      const res1 = await axios.post(backend.host + ':' + backend.port + '/dispensadores',
+        {
+          id_dispensador: this.state.idDispensador,
+          no_usos: 1,
+          nivel_bajo: 1,
+          id_ubicacion: 123,
+          id_usuario: 21
+        });
+        console.log(res1);
+        if (res1) {
+          alert("Dispensador registrado");
+          window.location.href = "./";
+        }
+    }catch (error) {
+      alert("Dispensador no registrado"); //personalizar errores para lanzarlos y manejarlos
     }
     
-    this.getUsuarios();
-    this.setState({userName:''});
-    this.setState({userEmail:''});
-    this.setState({userPassword:''});
-    
+    this.getDispensadores();
+    this.setState({ userName: '' });
+    this.setState({ userEmail: '' });
+    this.setState({ userPassword: '' });
+    this.setState({ idDispensador: '' });
+
   }
-  
+
   //metodo render
-  render(){
-    return(
+  render() {
+    return (
       <div className="containerRegistro">
-      <div className="containerRegistrosSec">
+        <div className="containerRegistrosSec">
           <div className="form-group2">
-          <Link className='nav-link active' to="/"><label> Atras </label></Link>
-          <label>Correo electrónico: </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.userEmail} 
-            placeholder="Ingrese correo electrónico" 
-            onChange={this.onChangeEmail}
-            name="email"          
-          />
+            <Link className='nav-link active' to="/"><label> Atras </label></Link>
+            <label>Correo electrónico: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.userEmail}
+              placeholder="Ingrese correo electrónico"
+              onChange={this.onChangeEmail}
+              name="email"
+            />
 
-          <label>Nombre de usuario </label>
-          <input
-            type="text"
-            className="form-control"
-            value={this.state.userName} 
-            placeholder="Ingrese nombre de usuario" 
-            onChange={this.onChangeUser}
-            name="username"
-          />
+            <label>Nombre de usuario </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.userName}
+              placeholder="Ingrese nombre de usuario"
+              onChange={this.onChangeUser}
+              name="username"
+            />
 
-          <label>Contraseña: </label>
-          <input
-            type="password"
-            className="form-control"
-            value={this.state.userPassword} 
-            placeholder="Ingrese contraseña" 
-            onChange={this.onChangePassword}
-            name="password"
-            
-            
-          />
-           
-          <button className="Registrarse" onClick={this.onClick}>Registrarse
-          </button>
-          
-         
+            <label>Contraseña: </label>
+            <input
+              type="password"
+              className="form-control"
+              value={this.state.userPassword}
+              placeholder="Ingrese contraseña"
+              onChange={this.onChangePassword}
+              name="password"
 
+
+            />
+
+            <label>Id del dispensador </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.idDispensador}
+              placeholder="Ingrese id del dispensador"
+              onChange={this.onChangeIdDispensador}
+              name="idDispensador"
+            />
+
+            <button className="Registrarse" onClick={this.onClick}>Registrarse
+            </button>
+
+
+
+          </div>
         </div>
       </div>
-    </div>
-      )}
+    )
+  }
 }
 export default Registro
