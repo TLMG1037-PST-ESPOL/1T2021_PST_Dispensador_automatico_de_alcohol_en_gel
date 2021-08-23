@@ -1,5 +1,7 @@
+import { Dropdown } from "bootstrap";
 import React from "react";
 import { Link } from 'react-router-dom'
+
 
 const TaskBar = ({text}) => {
   const mobile = window.innerWidth < 600;
@@ -20,6 +22,16 @@ const TaskBar = ({text}) => {
         </div>
       </div>
     </nav>
+
+
+
     </div>
+  
+  
+
+  
+  
+  
+  
   )}
 export default TaskBar

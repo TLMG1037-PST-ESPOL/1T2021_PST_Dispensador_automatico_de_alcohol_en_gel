@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './components/TaskBar/TaskBar.js'
 import TaskBar from './components/TaskBar/TaskBar.js'
-
+import Dispensadores from  './components/Dispensadores/Dispensadores.js'
 import Cookies from 'universal-cookie';
 
 
@@ -15,6 +15,7 @@ export default class Inicio extends Component {
         return (
             <div>
                 <TaskBar text= "Menu Principal" />
+                <Dispensadores/>
             </div>
         )
     }
