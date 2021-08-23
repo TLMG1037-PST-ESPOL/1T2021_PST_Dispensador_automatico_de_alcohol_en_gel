@@ -16,6 +16,10 @@ export default class Inicio extends Component {
             <div>
                 <TaskBar text= "Menu Principal" />
                 <Dispensadores/>
+            
+            <script type= "text/javascript">
+
+            </script>
             </div>
         )
     }

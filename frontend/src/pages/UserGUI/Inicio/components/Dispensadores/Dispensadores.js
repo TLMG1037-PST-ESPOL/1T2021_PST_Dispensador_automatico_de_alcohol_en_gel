@@ -21,11 +21,12 @@ const abrirCerrarDropdown=()=>{
             <Dropdown   isOpen={dropdown} toggle={abrirCerrarDropdown}     >
 
                 <DropdownToggle caret>
-                    Dispensadores disponibles
-                </DropdownToggle>
+                    Dispositivos
+                </DropdownToggle >
 
                 <DropdownMenu>
-                    <DropdownItem>  Item 1                  Item disponible
+                    <DropdownItem><header>Dispensadores registrados</header></DropdownItem>
+                    <DropdownItem>  Item 1 Item disponible
                     </DropdownItem>
 
                 </DropdownMenu>
