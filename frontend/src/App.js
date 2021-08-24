@@ -28,8 +28,8 @@ function App() {
 }
 
 export const backend = {
-  host: "http", 
-  port: "//dispensador-de-gel.herokuapp.com"
+  host: "http://localhost",
+  port: 8082
 }
 
 export default App;
