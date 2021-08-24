@@ -13,14 +13,17 @@ export default class Inicio extends Component {
         console.log(cookies.get('correo_electronico'));
         console.log(cookies.get('nombre_usuario'));
         return (
-            <div>
+           <div>
                 <TaskBar text= "Menu Principal" />
-                <Dispensadores/>
-            
+                <div className="containerPrincipal2">
+                <div className="conainerSecundario"></div>
+                    <Dispensadores/>
+                </div>
             <script type= "text/javascript">
 
             </script>
             </div>
+            
         )
     }
 }
