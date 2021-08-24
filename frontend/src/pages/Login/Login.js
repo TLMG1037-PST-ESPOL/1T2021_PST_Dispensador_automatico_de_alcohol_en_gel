@@ -52,7 +52,8 @@ class Login extends Component {
                   ,icon: "error",button: "Entendido",})
             }
         } catch (error) {
-            alert("Usuario no existe"); //personalizar errores para lanzarlos y manejarlos
+            swal({title: "Nombre de usuario o contraseña incorrectos",text: "Por favor, ingresa nuevamente tus credenciales"
+            ,icon: "error",button: "Entendido",})
         }
     }
 
