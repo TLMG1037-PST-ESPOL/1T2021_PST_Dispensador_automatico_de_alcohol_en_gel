@@ -29,7 +29,7 @@ function App() {
 
 export const backend = {
   host: "http://localhost",
-  port: 8080
+  port: 8082
 }
 
 export default App;

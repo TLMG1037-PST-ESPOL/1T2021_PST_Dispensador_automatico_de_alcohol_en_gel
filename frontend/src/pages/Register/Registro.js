@@ -31,7 +31,7 @@ class Registro extends Component {
     console.log(this.state.user)
   }
   async getDispensadores() {
-    const res = await axios.get(backend.host + ':' + backend.port + '/dispensadores');
+    const res = await axios.get(backend.host + ':' + backend.port + '/dispensador');
     this.setState({ dispensadores: res.data });
     console.log(this.state.dispensadores)
   }
