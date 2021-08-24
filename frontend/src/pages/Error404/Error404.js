@@ -3,7 +3,7 @@
 const Error404 =()=>{
 
     return(
-    <div>
+    <div className="principal">
       <div className="mars"></div>
         <img src="https://assets.codepen.io/1538474/404.svg" className="logo-404" />
         <img src="https://assets.codepen.io/1538474/meteor.svg" className="meteor" />

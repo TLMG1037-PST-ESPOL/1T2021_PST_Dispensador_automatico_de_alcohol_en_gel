@@ -15,7 +15,6 @@ const TaskBar = ({text}) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <Link className="nav-link active" aria-current="page" to="/dispositivo">Dispositivos</Link>
             <Link className="nav-link" to="/">Log Out</Link>
             </div>
         </div>
