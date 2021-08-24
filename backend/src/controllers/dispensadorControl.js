@@ -35,17 +35,7 @@ dispensadorControl.postDispensador=(req,res)=>{
         res.status(400).send("Datos incompletos");
         console.log("dispensador no registrado")
         return;
-    }
-/**
-    db.query("SELECT * FROM usuario WHERE nombre_usuario= '"+nombre_usuario+"'",(err, result, fields)=>{
-        console.log(result)
-        if(result){
-            res.status(400).send(err);
-            console.log("Usuario ya existe");
-            return;
-        }
-    })*/
-    
+    }    
     let SQLbody={}  
     
     SQLbody={id_dispensador, no_usos, nivel_bajo, id_ubicacion, id_usuario};
@@ -61,6 +51,23 @@ dispensadorControl.postDispensador=(req,res)=>{
     });
 }
 
+dispensadorControl.putDispensador=(req,res)=>{
+
+    const{no_usos,nivel_bajo}=req.body;
+
+    db.query("UPDATE dispensador SET no_usos="+no_usos+", nivel_bajo"+nivel_bajo+"WHERE id_dispensador="+req.params.id,
+    (err,result,fields)=>{
+
+        if(err){
+            res.status(400).send("id no valida")
+            console.log(err);
+            return;
+        }
+        res.send("Estado actualizado")
+
+    })
+}
+
 //eliminar inf de la DB
 dispensadorControl.deleteDispensador=(req,res)=>{
     db.query("DELETE FROM dispensador WHERE id_dispensador="+req.params.id,
@@ -73,4 +80,6 @@ dispensadorControl.deleteDispensador=(req,res)=>{
         res.send("Dispensador eliminado")
     })
 }
+
+
 module.exports=dispensadorControl;

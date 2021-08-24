@@ -81,7 +81,7 @@ class Registro extends Component {
         swal({title: "Correo electrónico inválido", icon: "error",button: "Entendido",});
       }else if(!this.state.userPassword){
         console.log("Ingrese contraseña");
-        swal("Ingrese contraseña");
+        swal({title: "Contraseña inválida", icon: "error",button: "Entendido",});
       }else {
         const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
           {
