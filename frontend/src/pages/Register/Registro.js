@@ -33,7 +33,7 @@ class Registro extends Component {
   async getDispensadores() {
     const res = await axios.get(backend.host + ':' + backend.port + '/dispensador');
     this.setState({ dispensadores: res.data });
-    console.log(this.state.dispensadores)
+  
   }
 
   async componentDidMount() {
@@ -42,7 +42,7 @@ class Registro extends Component {
     await this.getDispensadores();
     console.log(this.state.users);
     console.log(this.state.user);
-    console.log(this.state.dispensadores);
+
   }
 
   //Funciones onChange para manejar evento del input
