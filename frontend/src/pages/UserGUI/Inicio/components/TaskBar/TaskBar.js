@@ -7,7 +7,7 @@ const TaskBar = ({text}) => {
 
   return (
     <div>
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark .text-dark">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/inicio">{text}</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -19,7 +19,7 @@ const abrirCerrarDropdown=()=>{
         
         <div>
             <div className='dispensadorbox'>
-
+            
             <Dropdown   isOpen={dropdown} toggle={abrirCerrarDropdown}     >
 
                 <DropdownToggle caret>
@@ -27,7 +27,8 @@ const abrirCerrarDropdown=()=>{
                 </DropdownToggle >
 
                 <DropdownMenu>
-                    <DropdownItem><header>Dispensadores registrados</header></DropdownItem>
+                    <DropdownItem><header>Dispensadores registrados</header> 
+                    </DropdownItem>
                     <DropdownItem>  Item 1 Item disponible
                     </DropdownItem>
 
