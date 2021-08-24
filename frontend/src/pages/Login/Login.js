@@ -9,6 +9,7 @@ import axios from "axios"
 import { backend } from '../../App.js'
 import Cookies from 'universal-cookie';
 import Inicio from '../UserGUI/Inicio/Inicio.js';
+import swal from 'sweetalert'
 
 const cookies = new Cookies()
 
@@ -47,19 +48,8 @@ class Login extends Component {
                 window.location.href = "./inicio";
 
             } else {
-                if (!this.state.form.usuario & !this.state.form.contraseña) {
-                    console.log("ingrese usuario y contraseña");
-                    alert(`ingrese nombre de usuario y contraseña`);
-                } else if (!this.state.form.usuario) {
-                    console.log("ingrese nombre de usuario");
-                    alert(`ingrese nombre de usuario`);
-                } else if (!this.state.form.contraseña) {
-                    console.log("ingrese contraseña");
-                    alert(`ingrese contraseña`);
-                } else {
-                    console.log("contraseña incorrecta");
-                    alert(`contraseña incorrecta`);
-                }
+                swal({title: "Nombre de usuario o contraseña incorrectos",text: "Por favor, ingresa nuevamente tus credenciales"
+                  ,icon: "error",button: "Entendido",})
             }
         } catch (error) {
             alert("Usuario no existe"); //personalizar errores para lanzarlos y manejarlos

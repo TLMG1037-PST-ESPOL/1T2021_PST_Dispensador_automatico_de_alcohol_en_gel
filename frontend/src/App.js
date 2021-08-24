@@ -19,8 +19,8 @@ function App() {
         <Route exact path="/login"  exact component={Login}/>  
         <Route exact path="/register" exact component={Registro}/>  
         <Route exact path="/inicio" exact component={Inicio}/> 
-        <Route path="/inicio/2709" exact component={Dispensador}/> 
-        <Route path="*" exact component={Error404}/>
+        <Route path="/2709" exact component={Dispensador}/> 
+        <Route path="*" exact component={Error404} status={404}/>
       </Switch>
    </Router>
 

@@ -53,7 +53,7 @@ export default class Inicio extends Component {
                 <TaskBar text= "Menu Principal" />
                 <div className="containerPrincipal2">
                 <div className="conainerSecundario"></div>
-                    <Dispensadores text={this.state.idDispensador} path="inicio/2709" />
+                    <Dispensadores text={this.state.idDispensador} path="/2709" />
                 </div>
             <script type= "text/javascript">
 
