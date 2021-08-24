@@ -1,4 +1,4 @@
-/*import  './Error404.scss'*/
+import  './Error404.scss'
 
 const Error404 =()=>{
 
@@ -12,7 +12,7 @@ const Error404 =()=>{
             La página que a la que estas tratando de acceder no existe <br /> o ha sido removida.
         </p>
         <div align="center">
-            <a className="boton" href="/">Regresar al HomePage</a>
+            <a className="boton" href="/">Toca el botón de "atras"!!</a>
         </div>
         <img src="https://assets.codepen.io/1538474/astronaut.svg" className="astronaut" />
     </div>

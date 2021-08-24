@@ -53,9 +53,9 @@ dispensadorControl.postDispensador=(req,res)=>{
 
 dispensadorControl.putDispensador=(req,res)=>{
 
-    const{no_usos,nivel_bajo}=req.body;
+    const {no_usos,nivel_bajo}=req.body;
 
-    db.query("UPDATE dispensador SET no_usos="+no_usos+", nivel_bajo"+nivel_bajo+"WHERE id_dispensador="+req.params.id,
+    db.query("UPDATE dispensador SET no_usos="+no_usos+", nivel_bajo="+nivel_bajo+" WHERE id_dispensador="+req.params.id,
     (err,result,fields)=>{
 
         if(err){
