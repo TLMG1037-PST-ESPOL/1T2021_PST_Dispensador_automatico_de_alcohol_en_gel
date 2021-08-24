@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 
 //Configs
-server.set('port',8080);
+server.set('port', process.env.PORT || 8082);
 server.set('host','localhost');
 
 //Middlewares
