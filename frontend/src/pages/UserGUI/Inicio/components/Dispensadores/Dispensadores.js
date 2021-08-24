@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import {useState} from 'react';
 
-const Dispensadores = () => {
+const Dispensadores = ({text,path}) => {
 
     const [dropdown, setDropdown]= useState(false);
 
@@ -13,7 +13,7 @@ const abrirCerrarDropdown=()=>{
     setDropdown(!dropdown)
 }
 
-
+    
 
     return (
         
@@ -29,7 +29,7 @@ const abrirCerrarDropdown=()=>{
                 <DropdownMenu>
                     <DropdownItem><header>Dispensadores registrados</header> 
                     </DropdownItem>
-                    <DropdownItem>  Item 1 Item disponible
+                    <DropdownItem href={path}> {text}
                     </DropdownItem>
 
                 </DropdownMenu>

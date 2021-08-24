@@ -41,6 +41,7 @@ class Login extends Component {
             const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/' + this.state.form.usuario,
             )
             if (res.data[0].contraseña == this.state.form.contraseña) {
+                cookies.set('id_usuario', res.data[0].id_usuario, { path: "/" });
                 cookies.set('correo_electronico', res.data[0].correo_electronico, { path: "/" });
                 cookies.set('nombre_usuario', res.data[0].nombre_usuario, { path: "/" });
                 window.location.href = "./inicio";

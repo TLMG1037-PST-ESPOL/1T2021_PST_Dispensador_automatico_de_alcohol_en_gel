@@ -54,12 +54,7 @@ class Registro extends Component {
       userPassword: e.target.value
     })
   }
-  onChangeIdDispensador = (e) => {
-    this.setState({
-      idDispensador: e.target.value
-    })
-    console.log(this.state.idDispensador)
-  }
+ 
 
   //Manejador para boton
 
