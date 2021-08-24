@@ -8,6 +8,8 @@
       padding: 40px;
       /*background: content-box radial-gradient(#024379, rgba(255, 255, 255, 0.534));*/
       background-color: #024379;
+      border-color: black;
+      border-radius: 100xp;
       height: 100%;
       width: 100%;
       

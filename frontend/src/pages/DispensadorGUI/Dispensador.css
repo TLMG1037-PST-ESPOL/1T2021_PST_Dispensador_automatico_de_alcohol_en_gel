@@ -1,0 +1,11 @@
+.borde_medicion{
+border: 20%;
+border-color: rgb(0, 0, 0);
+position: relative;
+border-style: solid;
+border-radius: 100%;
+left: 50%;
+top: 50%;
+width: 100%;
+background-color: black;
+}

@@ -1,4 +1,4 @@
-import  './Error404.scss'
+/*import  './Error404.scss'*/
 
 const Error404 =()=>{
 
