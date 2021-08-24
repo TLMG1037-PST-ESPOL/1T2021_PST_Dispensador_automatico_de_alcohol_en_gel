@@ -62,19 +62,36 @@ class Registro extends Component {
 
   onClick = async (e) => {
     e.preventDefault();
+    const filterAlpha = (str) => {
+      if (typeof str !== "string") return false;
+      return str.replace(/[A-Z]|[a-z]|[0-9]/g, "") === "";
+    }
     try {
-
-      const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
-        {
-          id_rol_usuario: 1,
-          nombre_usuario: this.state.userName,
-          correo_electronico: this.state.userEmail,
-          contraseña: this.state.userPassword
-        })
-      console.log(res);
-      if (res) {
-        alert("Cuenta registrada");
-        window.location.href = "./";
+      if(!filterAlpha(this.state.userName) & !this.state.userEmail.includes("@") & !this.state.userPassword){
+        console.log("credenciales invalidas");
+        alert(`ingrese nombre de usuario y correo valido`);
+      }else if (!filterAlpha(this.state.userName)) {
+        console.log("Usuario invalido");
+        alert(`ingrese nombre de usuario valido`);
+      }else if(!this.state.userEmail.includes("@")){
+        console.log("correo invalido");
+        alert(`ingrese correo valido`);
+      }else if(!this.state.userPassword){
+        console.log("Ingrese contraseña");
+        alert(`ingrese contraseña`);
+      }else {
+        const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
+          {
+            id_rol_usuario: 1,
+            nombre_usuario: this.state.userName,
+            correo_electronico: this.state.userEmail,
+            contraseña: this.state.userPassword
+          })
+        console.log(res);
+        if (res) {
+          alert("Cuenta registrada");
+          window.location.href = "./";
+        }
       }
     } catch (error) {
       alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
@@ -89,15 +106,15 @@ class Registro extends Component {
           id_ubicacion: 123,
           id_usuario: 21
         });
-        console.log(res1);
-        if (res1) {
-          alert("Dispensador registrado");
-          window.location.href = "./";
-        }
-    }catch (error) {
+      console.log(res1);
+      if (res1) {
+        alert("Dispensador registrado");
+        window.location.href = "./";
+      }
+    } catch (error) {
       alert("Dispensador no registrado"); //personalizar errores para lanzarlos y manejarlos
     }
-    
+
     this.getDispensadores();
     this.setState({ userName: '' });
     this.setState({ userEmail: '' });
