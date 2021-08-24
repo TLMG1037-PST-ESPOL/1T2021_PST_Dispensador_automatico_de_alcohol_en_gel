@@ -3,6 +3,9 @@ import './Registro.css'
 import axios from "axios"
 import { backend } from '../../App.js'
 import { Link } from 'react-router-dom'
+import swal from 'sweetalert';
+
+
 
 class Registro extends Component {
 
@@ -67,18 +70,18 @@ class Registro extends Component {
       return str.replace(/[A-Z]|[a-z]|[0-9]/g, "") === "";
     }
     try {
-      if(!filterAlpha(this.state.userName) & !this.state.userEmail.includes("@") & !this.state.userPassword){
+      if(!this.state.userName & !this.state.userEmail & !this.state.userPassword){
         console.log("credenciales invalidas");
-        alert(`ingrese nombre de usuario y correo valido`);
+        swal({title: "Ingrese credenciales", icon: "warning",button: "Entendido",});
       }else if (!filterAlpha(this.state.userName)) {
         console.log("Usuario invalido");
-        alert(`ingrese nombre de usuario valido`);
+        swal({title: "Usuario inválido",icon: "error",button: "Entendido",});
       }else if(!this.state.userEmail.includes("@")){
-        console.log("correo invalido");
-        alert(`ingrese correo valido`);
+        console.log("Correo invalido");
+        swal({title: "Correo electrónico inválido", icon: "error",button: "Entendido",});
       }else if(!this.state.userPassword){
         console.log("Ingrese contraseña");
-        alert(`ingrese contraseña`);
+        swal("Ingrese contraseña");
       }else {
         const res = await axios.post(backend.host + ':' + backend.port + '/usuarios',
           {
@@ -89,37 +92,24 @@ class Registro extends Component {
           })
         console.log(res);
         if (res) {
-          alert("Cuenta registrada");
+          swal({title: "Gracias por registrarte!",text: "Tu cuenta ha sido creada con éxito!"
+                  ,icon: "success",button: "Volver al inicio",}).then((value) => {
           window.location.href = "./";
+          })
         }
       }
     } catch (error) {
       alert("Datos incompletos o usuario ya existe"); //personalizar errores para lanzarlos y manejarlos
     }
-    this.getUsuarios();
-    try {
-      const res1 = await axios.post(backend.host + ':' + backend.port + '/dispensadores',
-        {
-          id_dispensador: this.state.idDispensador,
-          no_usos: 1,
-          nivel_bajo: 1,
-          id_ubicacion: 123,
-          id_usuario: 21
-        });
-      console.log(res1);
-      if (res1) {
-        alert("Dispensador registrado");
-        window.location.href = "./";
-      }
-    } catch (error) {
-      alert("Dispensador no registrado"); //personalizar errores para lanzarlos y manejarlos
-    }
 
+
+
+    this.getUsuarios();
     this.getDispensadores();
     this.setState({ userName: '' });
     this.setState({ userEmail: '' });
     this.setState({ userPassword: '' });
-    this.setState({ idDispensador: '' });
+  
 
   }
 
@@ -158,20 +148,7 @@ class Registro extends Component {
               placeholder="Ingrese contraseña"
               onChange={this.onChangePassword}
               name="password"
-
-
             />
-
-            <label>Id del dispensador </label>
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.idDispensador}
-              placeholder="Ingrese id del dispensador"
-              onChange={this.onChangeIdDispensador}
-              name="idDispensador"
-            />
-
             <button className="Registrarse" onClick={this.onClick}>Registrarse
             </button>
 
