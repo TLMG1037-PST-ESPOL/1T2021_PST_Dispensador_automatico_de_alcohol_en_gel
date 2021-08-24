@@ -1,11 +1,39 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'bootstrap';
 import Title from '../Login/components/Title/Title';
 import Medicion from './Medicion/Medicion';
+import axios from "axios"
+import { backend } from '../../App.js'
+import swal from 'sweetalert'
+
+
 class Dispensador extends Component {
 
+    state = {
+        dispensadores: [],
+        numero_de_usos: '',
+        estado: ''
+    }
+         
+    async getDispensadores() {
+        const res = await axios.get(backend.host + ':' + backend.port + '/dispensador');
+        this.setState({ dispensadores: res.data });
+        this.setState({numero_de_usos: res.data[0].no_usos});
+        if(res.data[0].nivel_bajo){
+            this.setState({estado: "Nivel bajo"});
+            swal({title: "Se ha detectado un nivel bajo",text: "Hemos detectado un nivel bajo del acohol, por favor, llena la botella"
+                  ,icon: "warning",button: "Lo haré",})
+        }else{
+            this.setState({estado: "Normal"});
+        }
+    }
+
+    async componentDidMount() {
+    await this.getDispensadores();
+    console.log(this.state.dispensadores);
+    }
+
+      
 
 
 
@@ -17,9 +45,9 @@ class Dispensador extends Component {
                 <div className="containerSecundario">
                     <div className= "borde_medicion">
                     <Title text="ID: 2709 - vicemora"></Title>
-                     <Title text="ID: 2709 - vicemora"></Title> 
-                    <Medicion text="190"></Medicion>
-                    <h2>El nivel es <var jk>nivel</var> </h2>
+                    <h2>Numero de usos </h2>
+                    <Medicion text={this.state.numero_de_usos}></Medicion>
+                    <h2>El nivel es: {this.state.estado} </h2>
                     </div>
           </div>
           </div>
