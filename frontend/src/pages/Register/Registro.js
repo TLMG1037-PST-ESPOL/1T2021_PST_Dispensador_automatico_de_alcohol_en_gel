@@ -75,16 +75,18 @@ class Registro extends Component {
     try {
       const res = await axios.get(backend.host + ':' + backend.port + '/usuarios/' + this.state.userName,
       )
+      console.log(this.state.userName)
       if (res.data[0].nombre_usuario == this.state.userName) {
         console.log("El usuario ingresado ya existe");
         swal({ title: "El usuario ingresado ya existe", icon: "error", button: "Entendido", })
       }
+      if (!this.state.userName & !this.state.userEmail & !this.state.userPassword) {
+        console.log("credenciales invalidas");
+        swal({ title: "Ingrese credenciales", icon: "warning", button: "Entendido", });
+      }
     } catch (error) {
       try {
-        if (!this.state.userName & !this.state.userEmail & !this.state.userPassword) {
-          console.log("credenciales invalidas");
-          swal({ title: "Ingrese credenciales", icon: "warning", button: "Entendido", });
-        } else if (!filterAlpha(this.state.userName)) {
+         if (!filterAlpha(this.state.userName)) {
           console.log("Usuario invalido");
           swal({ title: "Usuario inválido", icon: "error", button: "Entendido", });
         } else if (!this.state.userEmail.includes("@")) {
