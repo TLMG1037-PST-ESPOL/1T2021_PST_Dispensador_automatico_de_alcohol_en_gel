@@ -9,12 +9,13 @@ import swal from 'sweetalert'
 
 class Dispensador extends Component {
 
+    //seteando estados para controlar variables 
     state = {
         dispensadores: [],
         numero_de_usos: '',
         estado: ''
     }
-         
+    // Obtiene los dispensadores del backend
     async getDispensadores() {
         const res = await axios.get(backend.host + ':' + backend.port + '/dispensador');
         this.setState({ dispensadores: res.data });
@@ -27,7 +28,7 @@ class Dispensador extends Component {
             this.setState({estado: "Normal"});
         }
     }
-
+    //obteniendo los dispensadores
     async componentDidMount() {
     await this.getDispensadores();
     console.log(this.state.dispensadores);
